@@ -5,6 +5,7 @@
     <head>
         <title>SignGallery</title>
         <link rel="stylesheet" href="assets/index.css" />
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     </head>
 
     <body>
