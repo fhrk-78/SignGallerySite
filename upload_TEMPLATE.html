@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>SignGallery</title>
+        <link rel="stylesheet" href="assets/index.css" />
+        <style>
+            form {
+                font-size: 1.5rem;
+                padding: 3px 10px;
+                display: flex;
+                margin: 0 25vw;
+                flex-direction: column;
+            }
+
+            input {
+                font-size: 1.5rem;
+                padding: 3px 10px;
+            }
+        </style>
+        <script src="https://www.google.com/recaptcha/api.js?render=#######"></script>
+        <script>
+            grecaptcha.ready(function () {
+                grecaptcha.execute("#######", {action: "sent"}).then(function(token) {
+                var recaptchaResponse = document.getElementById("recaptchaResponse");
+                    recaptchaResponse.value = token;
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <p>
+                まるまささん開発の FabricLoader 向け 1.20.x 対応画像Mod<br/>
+                「MarumaSign」のダウンロードはここから<br/>
+                まるまささんは<b>多くのソフトウェアをオープンソースで</b>開発しています。<br/>
+                コーヒーの値段程でも彼の支えになるので寄付も検討してみて下さい<br/>
+                <a class="getnow" href="https://www.curseforge.com/minecraft/mc-mods/marumasign" target="_blank" rel="norefer noopener">MarumaSignを入手</a>
+                <a class="getnow" href="https://donate.marumasa.dev/" target="_blank" rel="norefer noopener" style="background-color: #5555ff; margin-left: 0;">寄付する</a>
+            </p>
+        </header>
+
+        <form method="post" action="./dbadd.php">
+            <label name="url">画像URL: </label><input type="url" name="url" placeholder="https://example.com" /><br/>
+            <label name="descriptions">説明: </label><input type="url" name="descriptions" placeholder="ex) 用途, 通称, etc" /><br/>
+            <label name="author">作者 (MCID推奨): </label><input type="url" name="author" placeholder="herobrine, notch, steve" /><br/>
+            <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
+            <br/><input type="submit" value="画像を登録" />
+        </form>
+
+        <footer>
+            <small>
+            MarumaSign: Copyright &copy; Marumasa 2023-2024 All right reserved.<br/>
+            SignGallery: Copyright &copy; PizzaHarumaki 2024-2024 All right reserved.<br/>
+            削除申請はPizzaHarumakiのTwitterDM等へ
+            </small>
+        </footer>
+
+        <script src="./client.js" async defer></script>
+    </body>
+</html>
